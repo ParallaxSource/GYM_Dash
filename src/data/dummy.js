@@ -10,6 +10,7 @@ import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
+
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -63,14 +64,32 @@ export const kanbanGrid = [
 ];
 const gridEmployeeProfile = (props) => (
   <div className="flex items-center gap-2">
+    
+   
     <img
       className="rounded-full w-10 h-10"
       src={props.EmployeeImage}
       alt="employee"
     />
+   
     <p>{props.Name}</p>
   </div>
 );
+const gridEmployeeBoton = () => (
+  <div className="flex items-center gap-2">
+    
+    <button
+    type="button"
+    style={{ background: "green" }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+   Perfil
+  </button>
+    
+  
+  </div>
+);
+
 
 const gridEmployeeCountry = (props) => (
   <div className="flex items-center justify-center gap-2">
@@ -120,6 +139,7 @@ export const EditorData = () => (
     </h3>
   </div>
 );
+
 const customerGridImage = (props) => (
   <div className="image flex gap-4">
     <img
@@ -127,9 +147,14 @@ const customerGridImage = (props) => (
       src={props.CustomerImage}
       alt="employee"
     />
+    
     <div>
       <p>{props.CustomerName}</p>
       <p>{props.CustomerEmail}</p>
+    
+    </div>
+    <div>
+     
     </div>
   </div>
 );
@@ -392,7 +417,10 @@ export const LinePrimaryYAxis = {
 };
 
 export const customersGrid = [
-  { type: 'checkbox', width: '50' },
+  { type: 'checkbox', width: '50'
+},
+
+
   { headerText: 'Name',
     width: '150',
     template: customerGridImage,
@@ -437,36 +465,22 @@ export const employeesGrid = [
   { headerText: 'Employee',
     width: '150',
     template: gridEmployeeProfile,
+
     textAlign: 'Center' },
-  { field: 'Name',
-    headerText: '',
-    width: '0',
-    textAlign: 'Center',
-  },
+ 
   { field: 'Title',
     headerText: 'Designation',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
-    width: '120',
-    textAlign: 'Center',
-    template: gridEmployeeCountry },
+ 
 
-  { field: 'HireDate',
-    headerText: 'Hire Date',
-    width: '135',
-    format: 'yMd',
-    textAlign: 'Center' },
-
-  { field: 'ReportsTo',
-    headerText: 'Reports To',
+  { field: 'Rutina',
+    headerText: 'Rutina',
     width: '120',
-    textAlign: 'Center' },
-  { field: 'EmployeeID',
-    headerText: 'Employee ID',
-    width: '125',
-    textAlign: 'Center' },
+    template:gridEmployeeBoton },
+
+  
 ];
 
 export const links = [
@@ -474,7 +488,8 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'ecommerce',
+        name: 'Principal',
+        path: '/syncfusionDashboard/Principal',
         icon: <FiShoppingBag />,
       },
     ],
@@ -483,16 +498,15 @@ export const links = [
   {
     title: 'Pages',
     links: [
+     
       {
-        name: 'orders',
-        icon: <AiOutlineShoppingCart />,
-      },
-      {
-        name: 'employees',
+        name: 'Entrenadores',
+        path: '/syncfusionDashboard/Entrenadores',
         icon: <IoMdContacts />,
       },
       {
-        name: 'customers',
+        name: 'Clientes',
+        path: '/syncfusionDashboard/Clientes',
         icon: <RiContactsLine />,
       },
     ],
@@ -501,61 +515,20 @@ export const links = [
     title: 'Apps',
     links: [
       {
-        name: 'calendar',
+        name: 'Calendario',
+        path: '/syncfusionDashboard/Calendario',
         icon: <AiOutlineCalendar />,
       },
+     
       {
-        name: 'kanban',
-        icon: <BsKanban />,
-      },
-      {
-        name: 'editor',
+        name: 'AI-Routine',  
+        path: '/syncfusionDashboard/aiform',
         icon: <FiEdit />,
       },
-      {
-        name: 'color-picker',
-        icon: <BiColorFill />,
-      },
+     
     ],
   },
-  {
-    title: 'Charts',
-    links: [
-      {
-        name: 'line',
-        icon: <AiOutlineStock />,
-      },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
-
-      {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
-        icon: <FiPieChart />,
-      },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
-    ],
-  },
+  
 ];
 
 export const cartData = [
@@ -932,6 +905,7 @@ export const customersData = [
     Weeks: '40',
     Budget: '$2.4k',
     Location: 'India',
+
   },
   {
     CustomerID: 1002,
@@ -1491,6 +1465,7 @@ export const employeesData = [
     ReportsTo: 'Carson',
     EmployeeImage:
     avatar3,
+  
   },
   {
     EmployeeID: 2,

@@ -10,6 +10,7 @@ const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
 
 const Scheduler = () => {
   const [scheduleObj, setScheduleObj] = useState();
+  const currentDate = new Date(); // Get the current date
 
   const change = (args) => {
     scheduleObj.selectedDate = args.value;
@@ -27,7 +28,7 @@ const Scheduler = () => {
       <ScheduleComponent
         height="650px"
         ref={(schedule) => setScheduleObj(schedule)}
-        selectedDate={new Date(2021, 0, 10)}
+        selectedDate={currentDate} // Set the current date as the initial selected date
         eventSettings={{ dataSource: scheduleData }}
         dragStart={onDragStart}
       >
@@ -44,7 +45,7 @@ const Scheduler = () => {
             <tr style={{ height: '50px' }}>
               <td style={{ width: '100%' }}>
                 <DatePickerComponent
-                  value={new Date(2021, 0, 10)}
+                  value={currentDate} // Set the current date as the initial value
                   showClearButton={false}
                   placeholder="Current Date"
                   floatLabelType="Always"
